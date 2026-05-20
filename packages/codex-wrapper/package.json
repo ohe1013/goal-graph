@@ -1,0 +1,28 @@
+{
+  "name": "@goal-graph/codex-wrapper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/ask.js",
+  "types": "./dist/ask.d.ts",
+  "bin": {
+    "mental": "./dist/ask.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/ask.d.ts",
+      "import": "./dist/ask.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "ask": "node dist/ask.js",
+    "init": "node dist/init.js"
+  },
+  "dependencies": {
+    "@goal-graph/core": "0.1.0",
+    "@goal-graph/visualization": "0.1.0"
+  }
+}
+

@@ -1,0 +1,2 @@
+{"id":"decision_001","timestamp":"2026-05-20T16:04:39+09:00","question_id":"q_001","summary":"Initialize the project with local file-based mental model storage before adding database-backed or full orchestration features.","status":"accepted","related_files":[".mental/goal.md",".mental/current-mental-model.json","docs/decisions/0001-file-storage-first.md"]}
+

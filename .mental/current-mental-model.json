@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "central_thesis": "??? Codex-like wrapper? ???? ???? ????? ?? ??, Codex?? ???? ?? ??, ??, ?? ?? ??? Goal Anchor ???? ???? ????? ?? ???? ??? ?? ?? ??.",
+  "goal_anchor_id": "goal_001",
+  "updated_at": "2026-05-20T17:03:50+09:00",
+  "nodes": [
+    {
+      "id": "node_current_thesis",
+      "label": "Central Thesis",
+      "type": "central_thesis",
+      "summary": "Project-direction memory layer that keeps Codex work aligned with the original goal while allowing visible evolution.",
+      "status": "active",
+      "confidence": 0.9,
+      "source_question_ids": [
+        "q_001",
+        "q_002",
+        "q_004"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_goal_anchor",
+      "label": "Goal Anchor",
+      "type": "goal_anchor",
+      "summary": "Stores the stable original project objective used as the reference point for later questions.",
+      "status": "active",
+      "confidence": 0.9,
+      "source_question_ids": [
+        "q_001"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T16:04:39+09:00"
+    },
+    {
+      "id": "node_baseline_structure",
+      "label": "Baseline Structure",
+      "type": "baseline_structure",
+      "summary": "Preserves the first coherent project structure so future changes can be compared against it.",
+      "status": "active",
+      "confidence": 0.85,
+      "source_question_ids": [
+        "q_001"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T16:04:39+09:00"
+    },
+    {
+      "id": "node_codex_wrapper",
+      "label": "Codex Wrapper",
+      "type": "system_component",
+      "summary": "Acts as the gateway that logs a question, loads direction context, prepares Codex context, and records outcomes.",
+      "status": "active",
+      "confidence": 0.8,
+      "source_question_ids": [
+        "q_001",
+        "q_003",
+        "q_004"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_question_log",
+      "label": "Question Log",
+      "type": "system_component",
+      "summary": "Append-only log of meaningful user questions with stable ids and raw text.",
+      "status": "active",
+      "confidence": 0.85,
+      "source_question_ids": [
+        "q_001"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T16:04:39+09:00"
+    },
+    {
+      "id": "node_impact_analyzer",
+      "label": "Impact Analyzer",
+      "type": "system_component",
+      "summary": "Classifies whether a question is tactical, structural, direction-changing, drifting, conflicting, clarifying, or evidential.",
+      "status": "active",
+      "confidence": 0.75,
+      "source_question_ids": [
+        "q_001"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T16:04:39+09:00"
+    },
+    {
+      "id": "node_mental_model_delta",
+      "label": "Mental Model Delta",
+      "type": "system_component",
+      "summary": "Small explainable updates that record how a new question changes or strengthens the current model.",
+      "status": "active",
+      "confidence": 0.8,
+      "source_question_ids": [
+        "q_001"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T16:04:39+09:00"
+    },
+    {
+      "id": "node_context_capsule",
+      "label": "Context Capsule",
+      "type": "system_component",
+      "summary": "Compact project-direction context injected into Codex-facing work.",
+      "status": "active",
+      "confidence": 0.8,
+      "source_question_ids": [
+        "q_001",
+        "q_003",
+        "q_004"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_mindmap_visualization",
+      "label": "Mindmap Visualization",
+      "type": "system_component",
+      "summary": "Renders the current mental model, source questions, and recent deltas as a graph.",
+      "status": "active",
+      "confidence": 0.75,
+      "source_question_ids": [
+        "q_001",
+        "q_003",
+        "q_004"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_llm_wiki_contrast",
+      "label": "LLM Wiki Contrast",
+      "type": "boundary",
+      "summary": "Clarifies that the product tracks project direction changes, not just stored information retrieval.",
+      "status": "active",
+      "confidence": 0.85,
+      "source_question_ids": [
+        "q_001"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T16:04:39+09:00"
+    },
+    {
+      "id": "node_open_decisions",
+      "label": "Open Decisions",
+      "type": "decision_area",
+      "summary": "Tracks unresolved product and architecture choices such as interface, storage, renderer, Codex integration depth, and compaction cadence.",
+      "status": "active",
+      "confidence": 0.7,
+      "source_question_ids": [
+        "q_001",
+        "q_003"
+      ],
+      "created_at": "2026-05-20T16:04:39+09:00",
+      "updated_at": "2026-05-20T16:58:17+09:00"
+    },
+    {
+      "id": "node_external_runtime",
+      "label": "External Runtime",
+      "type": "deployment_surface",
+      "summary": "Supports using the wrapper outside the local browser by running a small local service or packaged desktop runtime that owns the .mental store and Codex task boundary.",
+      "status": "proposed",
+      "confidence": 0.75,
+      "source_question_ids": [
+        "q_003",
+        "q_004"
+      ],
+      "created_at": "2026-05-20T16:58:17+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_electron_shell",
+      "label": "Electron Shell",
+      "type": "desktop_shell",
+      "summary": "Packages the mindmap UI and local wrapper service into a desktop app that can stay open without relying on a browser tab.",
+      "status": "proposed",
+      "confidence": 0.8,
+      "source_question_ids": [
+        "q_003",
+        "q_004"
+      ],
+      "created_at": "2026-05-20T16:58:17+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_codex_execution_adapter",
+      "label": "Codex Execution Adapter",
+      "type": "integration_boundary",
+      "summary": "Defines how prepared context capsules are handed to Codex CLI/API and how outcomes return to the mental model logs.",
+      "status": "proposed",
+      "confidence": 0.7,
+      "source_question_ids": [
+        "q_003",
+        "q_004"
+      ],
+      "created_at": "2026-05-20T16:58:17+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_installable_codex_like_cli",
+      "label": "Installable Codex-like CLI",
+      "type": "distribution_surface",
+      "summary": "The product should be installable like Codex and expose a command that opens or attaches to a project workspace.",
+      "status": "proposed",
+      "confidence": 0.82,
+      "source_question_ids": [
+        "q_004"
+      ],
+      "created_at": "2026-05-20T17:03:50+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_mindmap_first_launch",
+      "label": "Mindmap-first Launch",
+      "type": "user_experience",
+      "summary": "Running the installed wrapper should open the project mindmap first, making the current mental model the default surface before development continues.",
+      "status": "proposed",
+      "confidence": 0.86,
+      "source_question_ids": [
+        "q_004"
+      ],
+      "created_at": "2026-05-20T17:03:50+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    },
+    {
+      "id": "node_development_activity_capture",
+      "label": "Development Activity Capture",
+      "type": "workflow_capture",
+      "summary": "Codex-like development actions should feed question logs, decisions, outcomes, and model deltas so the mindmap is drawn as work happens.",
+      "status": "proposed",
+      "confidence": 0.8,
+      "source_question_ids": [
+        "q_004"
+      ],
+      "created_at": "2026-05-20T17:03:50+09:00",
+      "updated_at": "2026-05-20T17:03:50+09:00"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_current_to_goal",
+      "from": "node_current_thesis",
+      "to": "node_goal_anchor",
+      "type": "anchors",
+      "summary": "The current thesis must stay comparable to the original Goal Anchor.",
+      "source_question_ids": [
+        "q_001",
+        "q_002"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "id": "edge_current_to_baseline",
+      "from": "node_current_thesis",
+      "to": "node_baseline_structure",
+      "type": "compares_against",
+      "summary": "Current structure is interpreted against the first baseline structure.",
+      "source_question_ids": [
+        "q_001",
+        "q_002"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "edge_wrapper_to_question_log",
+      "from": "node_codex_wrapper",
+      "to": "node_question_log",
+      "type": "records",
+      "summary": "The wrapper logs meaningful user questions before preparing Codex work.",
+      "source_question_ids": [
+        "q_001"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "edge_question_to_impact",
+      "from": "node_question_log",
+      "to": "node_impact_analyzer",
+      "type": "feeds",
+      "summary": "Question events feed deterministic impact analysis.",
+      "source_question_ids": [
+        "q_001"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "edge_impact_to_delta",
+      "from": "node_impact_analyzer",
+      "to": "node_mental_model_delta",
+      "type": "produces",
+      "summary": "Impact analysis produces small mental model deltas.",
+      "source_question_ids": [
+        "q_001"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "edge_delta_to_capsule",
+      "from": "node_mental_model_delta",
+      "to": "node_context_capsule",
+      "type": "refreshes",
+      "summary": "Deltas update the compact context used by Codex-facing tasks.",
+      "source_question_ids": [
+        "q_001"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "edge_model_to_mindmap",
+      "from": "node_mental_model_delta",
+      "to": "node_mindmap_visualization",
+      "type": "renders",
+      "summary": "The visible mindmap reflects the current model and recent direction deltas.",
+      "source_question_ids": [
+        "q_001"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "id": "edge_goal_to_wiki_contrast",
+      "from": "node_goal_anchor",
+      "to": "node_llm_wiki_contrast",
+      "type": "constrains",
+      "summary": "The Goal Anchor prevents the product from collapsing into a generic LLM wiki.",
+      "source_question_ids": [
+        "q_001"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "edge_wrapper_to_external_runtime",
+      "from": "node_codex_wrapper",
+      "to": "node_external_runtime",
+      "type": "runs_in",
+      "summary": "The wrapper should be usable as a local runtime outside a browser-only flow.",
+      "source_question_ids": [
+        "q_003"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "id": "edge_external_runtime_to_electron",
+      "from": "node_external_runtime",
+      "to": "node_electron_shell",
+      "type": "packages_as",
+      "summary": "Electron is the preferred desktop shell for keeping the wrapper UI open without a browser tab.",
+      "source_question_ids": [
+        "q_003"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "edge_wrapper_to_codex_execution_adapter",
+      "from": "node_codex_wrapper",
+      "to": "node_codex_execution_adapter",
+      "type": "delegates_to",
+      "summary": "The wrapper needs an adapter boundary for handing context-rich tasks to Codex and capturing outcomes.",
+      "source_question_ids": [
+        "q_003"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": "edge_electron_to_mindmap",
+      "from": "node_electron_shell",
+      "to": "node_mindmap_visualization",
+      "type": "hosts",
+      "summary": "The Electron shell hosts the mindmap UI while the local runtime updates the graph files.",
+      "source_question_ids": [
+        "q_003"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "id": "edge_installable_cli_to_external_runtime",
+      "from": "node_installable_codex_like_cli",
+      "to": "node_external_runtime",
+      "type": "starts",
+      "summary": "The installed CLI starts or attaches to the local external runtime for a workspace.",
+      "source_question_ids": [
+        "q_004"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "edge_installable_cli_to_mindmap_launch",
+      "from": "node_installable_codex_like_cli",
+      "to": "node_mindmap_first_launch",
+      "type": "opens",
+      "summary": "The first visible result of running the tool should be the project mindmap.",
+      "source_question_ids": [
+        "q_004"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "edge_codex_adapter_to_development_capture",
+      "from": "node_codex_execution_adapter",
+      "to": "node_development_activity_capture",
+      "type": "captures_outcome",
+      "summary": "The Codex adapter captures task input and outcome so development activity updates the mental model.",
+      "source_question_ids": [
+        "q_004"
+      ],
+      "confidence": 0.78
+    },
+    {
+      "id": "edge_development_capture_to_mindmap",
+      "from": "node_development_activity_capture",
+      "to": "node_mindmap_visualization",
+      "type": "updates",
+      "summary": "Captured development activity refreshes the mindmap graph continuously.",
+      "source_question_ids": [
+        "q_004"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "id": "edge_mindmap_launch_to_electron",
+      "from": "node_mindmap_first_launch",
+      "to": "node_electron_shell",
+      "type": "hosted_by",
+      "summary": "Electron hosts the always-on mindmap-first experience without requiring a browser tab.",
+      "source_question_ids": [
+        "q_004"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "open_questions": [
+    "Initial storage: local files only, SQLite, PostgreSQL, or graph DB?",
+    "Mindmap renderer: React Flow, Cytoscape.js, Mermaid, or custom canvas?",
+    "Codex integration depth: context injection only, CLI execution, MCP integration, or full orchestration?",
+    "How often should the model be compacted or re-summarized?",
+    "Electron desktop shell details: tray behavior, auto-start, workspace picker, and packaged Codex execution boundary.",
+    "External runtime mode: local service, CLI-only, Electron-bundled service, or MCP server.",
+    "How should the installed command attach to Codex: wrap Codex CLI directly, launch Codex as a child process, or integrate through API/MCP?"
+  ],
+  "active_decisions": [
+    "Use local file storage for the MVP before introducing a database.",
+    "Use TypeScript and Node.js for core logic.",
+    "Expose a CLI wrapper before full Codex orchestration.",
+    "Prefer an Electron desktop shell as the always-on UI while preserving CLI/local service usage for external environments.",
+    "The target external usage is install -> run -> mindmap opens -> Codex-like development continuously updates the mindmap."
+  ],
+  "risks": [
+    "The wrapper may degrade into a generic history viewer if impact analysis and source-question traceability are weak.",
+    "The mindmap may become decorative if recent direction changes are not visible.",
+    "Codex integration depth is still unresolved.",
+    "Electron packaging can blur UI, local service, and Codex execution responsibilities unless the execution adapter boundary stays explicit.",
+    "The product will fail the target experience if users must manually sync logs or open a separate browser to see the mindmap."
+  ]
+}

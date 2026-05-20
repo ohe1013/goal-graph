@@ -1,0 +1,27 @@
+{
+  "name": "goal-graph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@10.9.3",
+  "workspaces": [
+    "packages/core",
+    "packages/visualization",
+    "packages/codex-wrapper",
+    "apps/web"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "dev": "npm run dev -w @goal-graph/web",
+    "mental:init": "npm run init -w @goal-graph/codex-wrapper --",
+    "mental:ask": "npm run ask -w @goal-graph/codex-wrapper --",
+    "sync:web-graph": "node scripts/sync-web-graph.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "typescript": "^5.8.3"
+  }
+}
+
