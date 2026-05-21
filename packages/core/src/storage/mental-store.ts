@@ -5,8 +5,10 @@ import type {
   MentalContext,
   MentalModel,
   MindmapGraph,
+  QuestionModeConfig,
   QuestionEvent
 } from "../schemas/types.js";
+import { nowTimestamp } from "../time.js";
 import { assertMentalModel, parseJsonl } from "./validation.js";
 
 export const mentalFiles = {
@@ -17,7 +19,10 @@ export const mentalFiles = {
   decisions: "decision-log.jsonl",
   directions: "direction-history.jsonl",
   capsule: "context-capsule.md",
-  graph: "mindmap.graph.json"
+  graph: "mindmap.graph.json",
+  questionMode: "question-mode.json",
+  projectAnalysis: "project-analysis.json",
+  syncState: "sync-state.json"
 } as const;
 
 export function mentalDirectory(projectRoot: string): string {
@@ -133,6 +138,29 @@ export async function readDirectionHistory(projectRoot: string): Promise<Directi
   return readJsonlFile<DirectionDelta>(projectRoot, mentalFiles.directions);
 }
 
+export async function readQuestionMode(projectRoot: string): Promise<QuestionModeConfig> {
+  const filePath = mentalPath(projectRoot, mentalFiles.questionMode);
+  if (!(await pathExists(filePath))) {
+    return {
+      version: 1,
+      default_directive: "auto",
+      updated_at: nowTimestamp()
+    };
+  }
+  const config = await readJsonFile<QuestionModeConfig>(projectRoot, mentalFiles.questionMode);
+  if (config.version !== 1) {
+    throw new Error("Question mode config version must be 1.");
+  }
+  return config;
+}
+
+export async function writeQuestionMode(projectRoot: string, config: QuestionModeConfig): Promise<void> {
+  if (config.version !== 1) {
+    throw new Error("Question mode config version must be 1.");
+  }
+  await writeJsonFile(projectRoot, mentalFiles.questionMode, config);
+}
+
 export async function appendDirectionDelta(projectRoot: string, delta: DirectionDelta): Promise<void> {
   await appendJsonlFile(projectRoot, mentalFiles.directions, delta);
 }
@@ -154,4 +182,3 @@ export async function readMentalContext(projectRoot: string): Promise<MentalCont
     directions: await readDirectionHistory(projectRoot)
   };
 }
-

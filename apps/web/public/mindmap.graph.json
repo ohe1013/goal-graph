@@ -42,7 +42,11 @@
       "source_question_ids": [
         "q_001",
         "q_003",
-        "q_004"
+        "q_004",
+        "q_005",
+        "q_006",
+        "q_007",
+        "q_008"
       ]
     },
     {
@@ -52,7 +56,8 @@
       "summary": "Append-only log of meaningful user questions with stable ids and raw text.",
       "status": "active",
       "source_question_ids": [
-        "q_001"
+        "q_001",
+        "q_005"
       ]
     },
     {
@@ -62,7 +67,8 @@
       "summary": "Classifies whether a question is tactical, structural, direction-changing, drifting, conflicting, clarifying, or evidential.",
       "status": "active",
       "source_question_ids": [
-        "q_001"
+        "q_001",
+        "q_005"
       ]
     },
     {
@@ -72,7 +78,8 @@
       "summary": "Small explainable updates that record how a new question changes or strengthens the current model.",
       "status": "active",
       "source_question_ids": [
-        "q_001"
+        "q_001",
+        "q_005"
       ]
     },
     {
@@ -84,7 +91,11 @@
       "source_question_ids": [
         "q_001",
         "q_003",
-        "q_004"
+        "q_004",
+        "q_005",
+        "q_006",
+        "q_007",
+        "q_008"
       ]
     },
     {
@@ -96,7 +107,8 @@
       "source_question_ids": [
         "q_001",
         "q_003",
-        "q_004"
+        "q_004",
+        "q_007"
       ]
     },
     {
@@ -180,7 +192,40 @@
       "summary": "Codex-like development actions should feed question logs, decisions, outcomes, and model deltas so the mindmap is drawn as work happens.",
       "status": "proposed",
       "source_question_ids": [
-        "q_004"
+        "q_004",
+        "q_007"
+      ]
+    },
+    {
+      "id": "node_question_direction_directive",
+      "label": "Question Direction Directive",
+      "type": "wrapper_contract",
+      "summary": "Captures explicit # directives before Codex questions so the user controls whether a task is directionless, weakly structural, strongly directional, boundary-setting, conflicting, drifting, or evidential.",
+      "status": "active",
+      "source_question_ids": [
+        "q_005"
+      ]
+    },
+    {
+      "id": "node_project_workspace_analysis",
+      "label": "Project Workspace Analysis",
+      "type": "workspace_evidence",
+      "summary": "goal-graph: Monorepo, Node.js, TypeScript; source directories: apps, packages, tests; docs: AGENTS.md, README.md, package.json.",
+      "status": "active",
+      "source_question_ids": [
+        "q_006",
+        "q_007",
+        "q_008"
+      ]
+    },
+    {
+      "id": "node_terminal_session_runtime",
+      "label": "Terminal Session Runtime",
+      "type": "runtime_surface",
+      "summary": "Running the installed command without a subcommand opens the current workspace, asks for consent if needed, analyzes the project, then keeps a terminal prompt for questions, mode changes, sync, and exit.",
+      "status": "active",
+      "source_question_ids": [
+        "q_007"
       ]
     }
   ],
@@ -355,6 +400,77 @@
       "summary": "Electron hosts the always-on mindmap-first experience without requiring a browser tab.",
       "source_question_ids": [
         "q_004"
+      ]
+    },
+    {
+      "id": "edge_directive_to_question_log",
+      "from": "node_question_direction_directive",
+      "to": "node_question_log",
+      "type": "annotates",
+      "summary": "The raw question is logged with normalized text and directive metadata while preserving source text.",
+      "source_question_ids": [
+        "q_005"
+      ]
+    },
+    {
+      "id": "edge_directive_to_impact_analyzer",
+      "from": "node_question_direction_directive",
+      "to": "node_impact_analyzer",
+      "type": "controls",
+      "summary": "The directive overrides or constrains heuristic impact analysis before model deltas are produced.",
+      "source_question_ids": [
+        "q_005"
+      ]
+    },
+    {
+      "id": "edge_directive_to_context_capsule",
+      "from": "node_question_direction_directive",
+      "to": "node_context_capsule",
+      "type": "filters",
+      "summary": "#none questions should not refresh direction context as structural changes, while #strong questions should force an explicit delta.",
+      "source_question_ids": [
+        "q_005"
+      ]
+    },
+    {
+      "id": "edge_workspace_analysis_to_context_capsule",
+      "from": "node_project_workspace_analysis",
+      "to": "node_context_capsule",
+      "type": "feeds",
+      "summary": "Project analysis is compacted into context before wrapped Codex work continues.",
+      "source_question_ids": [
+        "q_006",
+        "q_008"
+      ]
+    },
+    {
+      "id": "edge_installable_cli_to_terminal_session",
+      "from": "node_installable_codex_like_cli",
+      "to": "node_terminal_session_runtime",
+      "type": "starts",
+      "summary": "The installed command starts an always-on terminal prompt when run without a subcommand.",
+      "source_question_ids": [
+        "q_007"
+      ]
+    },
+    {
+      "id": "edge_terminal_session_to_workspace_analysis",
+      "from": "node_terminal_session_runtime",
+      "to": "node_project_workspace_analysis",
+      "type": "requires_consent_then_analyzes",
+      "summary": "The terminal session checks for .mental, asks consent when missing, and analyzes the workspace before normal questions continue.",
+      "source_question_ids": [
+        "q_007"
+      ]
+    },
+    {
+      "id": "edge_terminal_session_to_sync",
+      "from": "node_terminal_session_runtime",
+      "to": "node_mindmap_visualization",
+      "type": "syncs",
+      "summary": "The terminal session exposes .sync so refreshed graph and log artifacts stay aligned with the current model.",
+      "source_question_ids": [
+        "q_007"
       ]
     }
   ],

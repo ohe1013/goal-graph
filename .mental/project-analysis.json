@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "analyzed_at": "2026-05-21T17:03:22+09:00",
+  "project_root": "E:\\git-hg\\goal-graph",
+  "project_name": "goal-graph",
+  "package_manager": "npm@10.9.3",
+  "package_name": "goal-graph",
+  "package_scripts": [
+    "build",
+    "dev",
+    "mental:ask",
+    "mental:init",
+    "mental:mode",
+    "mental:open",
+    "mental:run",
+    "mental:sync",
+    "sync:web-graph",
+    "test",
+    "typecheck"
+  ],
+  "workspaces": [
+    "apps/web",
+    "packages/codex-wrapper",
+    "packages/core",
+    "packages/visualization"
+  ],
+  "lockfiles": [
+    "package-lock.json"
+  ],
+  "top_level_directories": [
+    "apps",
+    "docs",
+    "packages",
+    "scripts",
+    "tests"
+  ],
+  "docs": [
+    "AGENTS.md",
+    "README.md",
+    "package.json"
+  ],
+  "source_directories": [
+    "apps",
+    "packages",
+    "tests"
+  ],
+  "file_extension_counts": {
+    ".ts": 22,
+    ".json": 12,
+    ".md": 8,
+    ".jsonl": 2,
+    ".tsx": 2,
+    ".mjs": 2,
+    "[no_ext]": 1,
+    ".html": 1,
+    ".css": 1
+  },
+  "inferred_stack": [
+    "Monorepo",
+    "Node.js",
+    "TypeScript"
+  ],
+  "summary": "goal-graph: Monorepo, Node.js, TypeScript; source directories: apps, packages, tests; docs: AGENTS.md, README.md, package.json."
+}

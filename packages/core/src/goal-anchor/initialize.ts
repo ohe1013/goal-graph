@@ -61,6 +61,12 @@ export async function initializeProjectMentalModel(input: InitializeProjectMenta
   );
   await writeTextFileIfMissing(input.projectRoot, mentalFiles.capsule, contextCapsuleMarkdown());
   await writeJsonFileIfMissing(input.projectRoot, mentalFiles.graph, initialMindmapGraph());
+  await writeJsonFileIfMissing(input.projectRoot, mentalFiles.questionMode, {
+    version: 1,
+    default_directive: "auto",
+    updated_at: timestamp,
+    source_question_id: questionId
+  });
 
   return readMentalContext(input.projectRoot);
 }
@@ -252,4 +258,3 @@ function initialMindmapGraph(): MindmapGraph {
     }
   };
 }
-

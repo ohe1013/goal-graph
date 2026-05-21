@@ -6,6 +6,7 @@
   "main": "./dist/ask.js",
   "types": "./dist/ask.d.ts",
   "bin": {
+    "goal-graph": "./dist/ask.js",
     "mental": "./dist/ask.js"
   },
   "exports": {
@@ -25,4 +26,3 @@
     "@goal-graph/visualization": "0.1.0"
   }
 }
-

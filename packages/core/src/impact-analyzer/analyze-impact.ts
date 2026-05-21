@@ -1,8 +1,10 @@
-import type { ImpactAnalysis, ImpactType, MentalModel, QuestionEvent } from "../schemas/types.js";
+import type { ImpactAnalysis, ImpactType, MentalModel, QuestionDirective, QuestionEvent } from "../schemas/types.js";
+import { impactTypeForDirective, parseQuestionDirective } from "../question-log/question-directive.js";
 
 export interface AnalyzeImpactInput {
   question: QuestionEvent;
   mentalModel?: MentalModel;
+  defaultDirective?: QuestionDirective;
 }
 
 const defaultInitialNodes = [
@@ -17,13 +19,20 @@ const defaultInitialNodes = [
 ];
 
 export function analyzeImpact(input: AnalyzeImpactInput): ImpactAnalysis {
-  const text = input.question.text.toLowerCase();
-  const impactType = classifyImpact(text);
+  const parsed = parseQuestionDirective(
+    input.question.normalized_text ?? input.question.text,
+    input.question.directive ?? input.defaultDirective ?? "auto"
+  );
+  const text = parsed.normalizedText.toLowerCase();
+  const heuristicImpactType = classifyImpact(text);
+  const impactType = impactTypeForDirective(parsed.directive, heuristicImpactType);
   const affectedNodes = inferAffectedNodes(text, impactType, input.mentalModel);
 
   return {
     question_id: input.question.id,
     impact_type: impactType,
+    directive: parsed.directive,
+    directive_source: input.question.directive_source ?? parsed.directiveSource,
     affected_nodes: affectedNodes,
     strengthened: impactType === "source_evidence" ? affectedNodes : [],
     weakened: impactType === "goal_drift" ? ["node_goal_anchor"] : [],

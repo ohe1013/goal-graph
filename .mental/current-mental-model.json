@@ -2,7 +2,7 @@
   "version": 1,
   "central_thesis": "??? Codex-like wrapper? ???? ???? ????? ?? ??, Codex?? ???? ?? ??, ??, ?? ?? ??? Goal Anchor ???? ???? ????? ?? ???? ??? ?? ?? ??.",
   "goal_anchor_id": "goal_001",
-  "updated_at": "2026-05-20T17:03:50+09:00",
+  "updated_at": "2026-05-21T17:03:22+09:00",
   "nodes": [
     {
       "id": "node_current_thesis",
@@ -55,10 +55,14 @@
       "source_question_ids": [
         "q_001",
         "q_003",
-        "q_004"
+        "q_004",
+        "q_005",
+        "q_006",
+        "q_007",
+        "q_008"
       ],
       "created_at": "2026-05-20T16:04:39+09:00",
-      "updated_at": "2026-05-20T17:03:50+09:00"
+      "updated_at": "2026-05-21T17:03:22+09:00"
     },
     {
       "id": "node_question_log",
@@ -68,10 +72,11 @@
       "status": "active",
       "confidence": 0.85,
       "source_question_ids": [
-        "q_001"
+        "q_001",
+        "q_005"
       ],
       "created_at": "2026-05-20T16:04:39+09:00",
-      "updated_at": "2026-05-20T16:04:39+09:00"
+      "updated_at": "2026-05-21T14:18:05+09:00"
     },
     {
       "id": "node_impact_analyzer",
@@ -81,10 +86,11 @@
       "status": "active",
       "confidence": 0.75,
       "source_question_ids": [
-        "q_001"
+        "q_001",
+        "q_005"
       ],
       "created_at": "2026-05-20T16:04:39+09:00",
-      "updated_at": "2026-05-20T16:04:39+09:00"
+      "updated_at": "2026-05-21T14:18:05+09:00"
     },
     {
       "id": "node_mental_model_delta",
@@ -94,10 +100,11 @@
       "status": "active",
       "confidence": 0.8,
       "source_question_ids": [
-        "q_001"
+        "q_001",
+        "q_005"
       ],
       "created_at": "2026-05-20T16:04:39+09:00",
-      "updated_at": "2026-05-20T16:04:39+09:00"
+      "updated_at": "2026-05-21T14:18:05+09:00"
     },
     {
       "id": "node_context_capsule",
@@ -109,10 +116,14 @@
       "source_question_ids": [
         "q_001",
         "q_003",
-        "q_004"
+        "q_004",
+        "q_005",
+        "q_006",
+        "q_007",
+        "q_008"
       ],
       "created_at": "2026-05-20T16:04:39+09:00",
-      "updated_at": "2026-05-20T17:03:50+09:00"
+      "updated_at": "2026-05-21T17:03:22+09:00"
     },
     {
       "id": "node_mindmap_visualization",
@@ -124,10 +135,11 @@
       "source_question_ids": [
         "q_001",
         "q_003",
-        "q_004"
+        "q_004",
+        "q_007"
       ],
       "created_at": "2026-05-20T16:04:39+09:00",
-      "updated_at": "2026-05-20T17:03:50+09:00"
+      "updated_at": "2026-05-21T16:59:57+09:00"
     },
     {
       "id": "node_llm_wiki_contrast",
@@ -232,10 +244,52 @@
       "status": "proposed",
       "confidence": 0.8,
       "source_question_ids": [
-        "q_004"
+        "q_004",
+        "q_007"
       ],
       "created_at": "2026-05-20T17:03:50+09:00",
-      "updated_at": "2026-05-20T17:03:50+09:00"
+      "updated_at": "2026-05-21T16:59:57+09:00"
+    },
+    {
+      "id": "node_question_direction_directive",
+      "label": "Question Direction Directive",
+      "type": "wrapper_contract",
+      "summary": "Captures explicit # directives before Codex questions so the user controls whether a task is directionless, weakly structural, strongly directional, boundary-setting, conflicting, drifting, or evidential.",
+      "status": "active",
+      "confidence": 0.86,
+      "source_question_ids": [
+        "q_005"
+      ],
+      "created_at": "2026-05-21T14:18:05+09:00",
+      "updated_at": "2026-05-21T14:18:05+09:00"
+    },
+    {
+      "id": "node_project_workspace_analysis",
+      "label": "Project Workspace Analysis",
+      "type": "workspace_evidence",
+      "summary": "goal-graph: Monorepo, Node.js, TypeScript; source directories: apps, packages, tests; docs: AGENTS.md, README.md, package.json.",
+      "status": "active",
+      "confidence": 0.82,
+      "source_question_ids": [
+        "q_006",
+        "q_007",
+        "q_008"
+      ],
+      "created_at": "2026-05-21T16:58:16+09:00",
+      "updated_at": "2026-05-21T17:03:22+09:00"
+    },
+    {
+      "id": "node_terminal_session_runtime",
+      "label": "Terminal Session Runtime",
+      "type": "runtime_surface",
+      "summary": "Running the installed command without a subcommand opens the current workspace, asks for consent if needed, analyzes the project, then keeps a terminal prompt for questions, mode changes, sync, and exit.",
+      "status": "active",
+      "confidence": 0.84,
+      "source_question_ids": [
+        "q_007"
+      ],
+      "created_at": "2026-05-21T16:59:57+09:00",
+      "updated_at": "2026-05-21T16:59:57+09:00"
     }
   ],
   "edges": [
@@ -427,6 +481,84 @@
         "q_004"
       ],
       "confidence": 0.8
+    },
+    {
+      "id": "edge_directive_to_question_log",
+      "from": "node_question_direction_directive",
+      "to": "node_question_log",
+      "type": "annotates",
+      "summary": "The raw question is logged with normalized text and directive metadata while preserving source text.",
+      "source_question_ids": [
+        "q_005"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "id": "edge_directive_to_impact_analyzer",
+      "from": "node_question_direction_directive",
+      "to": "node_impact_analyzer",
+      "type": "controls",
+      "summary": "The directive overrides or constrains heuristic impact analysis before model deltas are produced.",
+      "source_question_ids": [
+        "q_005"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "id": "edge_directive_to_context_capsule",
+      "from": "node_question_direction_directive",
+      "to": "node_context_capsule",
+      "type": "filters",
+      "summary": "#none questions should not refresh direction context as structural changes, while #strong questions should force an explicit delta.",
+      "source_question_ids": [
+        "q_005"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "id": "edge_workspace_analysis_to_context_capsule",
+      "from": "node_project_workspace_analysis",
+      "to": "node_context_capsule",
+      "type": "feeds",
+      "summary": "Project analysis is compacted into context before wrapped Codex work continues.",
+      "source_question_ids": [
+        "q_006",
+        "q_008"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "id": "edge_installable_cli_to_terminal_session",
+      "from": "node_installable_codex_like_cli",
+      "to": "node_terminal_session_runtime",
+      "type": "starts",
+      "summary": "The installed command starts an always-on terminal prompt when run without a subcommand.",
+      "source_question_ids": [
+        "q_007"
+      ],
+      "confidence": 0.84
+    },
+    {
+      "id": "edge_terminal_session_to_workspace_analysis",
+      "from": "node_terminal_session_runtime",
+      "to": "node_project_workspace_analysis",
+      "type": "requires_consent_then_analyzes",
+      "summary": "The terminal session checks for .mental, asks consent when missing, and analyzes the workspace before normal questions continue.",
+      "source_question_ids": [
+        "q_007"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "id": "edge_terminal_session_to_sync",
+      "from": "node_terminal_session_runtime",
+      "to": "node_mindmap_visualization",
+      "type": "syncs",
+      "summary": "The terminal session exposes .sync so refreshed graph and log artifacts stay aligned with the current model.",
+      "source_question_ids": [
+        "q_007"
+      ],
+      "confidence": 0.78
     }
   ],
   "open_questions": [
@@ -436,20 +568,28 @@
     "How often should the model be compacted or re-summarized?",
     "Electron desktop shell details: tray behavior, auto-start, workspace picker, and packaged Codex execution boundary.",
     "External runtime mode: local service, CLI-only, Electron-bundled service, or MCP server.",
-    "How should the installed command attach to Codex: wrap Codex CLI directly, launch Codex as a child process, or integrate through API/MCP?"
+    "How should the installed command attach to Codex: wrap Codex CLI directly, launch Codex as a child process, or integrate through API/MCP?",
+    "Which default mode should the installed app use for new users: auto, none, or a guided prompt?",
+    "How much project analysis should run automatically before asking the user for more project intent?",
+    "Should the interactive terminal session execute Codex directly next, or continue preparing prompts until the CodexExecutionAdapter is hardened?"
   ],
   "active_decisions": [
     "Use local file storage for the MVP before introducing a database.",
     "Use TypeScript and Node.js for core logic.",
     "Expose a CLI wrapper before full Codex orchestration.",
     "Prefer an Electron desktop shell as the always-on UI while preserving CLI/local service usage for external environments.",
-    "The target external usage is install -> run -> mindmap opens -> Codex-like development continuously updates the mindmap."
+    "The target external usage is install -> run -> mindmap opens -> Codex-like development continuously updates the mindmap.",
+    "Question impact is controlled by # directives or the workspace default question mode before Codex execution.",
+    "Terminal open flow analyzes the current workspace before normal wrapped Codex questions.",
+    "Running goal-graph without a subcommand opens an interactive terminal session for the current workspace."
   ],
   "risks": [
     "The wrapper may degrade into a generic history viewer if impact analysis and source-question traceability are weak.",
     "The mindmap may become decorative if recent direction changes are not visible.",
     "Codex integration depth is still unresolved.",
     "Electron packaging can blur UI, local service, and Codex execution responsibilities unless the execution adapter boundary stays explicit.",
-    "The product will fail the target experience if users must manually sync logs or open a separate browser to see the mindmap."
+    "The product will fail the target experience if users must manually sync logs or open a separate browser to see the mindmap.",
+    "Without explicit question directives, tactical Codex work can pollute direction history and make the mindmap noisy.",
+    "Project analysis can become noisy if generated evidence is treated as a user direction without consent."
   ]
 }

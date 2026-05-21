@@ -16,7 +16,11 @@
     "test": "npm run build && node --test tests/*.test.mjs",
     "dev": "npm run dev -w @goal-graph/web",
     "mental:init": "npm run init -w @goal-graph/codex-wrapper --",
+    "mental:open": "npm run ask -w @goal-graph/codex-wrapper -- open",
     "mental:ask": "npm run ask -w @goal-graph/codex-wrapper --",
+    "mental:mode": "npm run ask -w @goal-graph/codex-wrapper -- mode",
+    "mental:run": "npm run ask -w @goal-graph/codex-wrapper -- run",
+    "mental:sync": "npm run ask -w @goal-graph/codex-wrapper -- sync",
     "sync:web-graph": "node scripts/sync-web-graph.mjs"
   },
   "devDependencies": {
@@ -24,4 +28,3 @@
     "typescript": "^5.8.3"
   }
 }
-

@@ -10,15 +10,33 @@ export const impactTypes = [
 
 export type ImpactType = (typeof impactTypes)[number];
 
+export const questionDirectives = [
+  "auto",
+  "none",
+  "weak",
+  "strong",
+  "boundary",
+  "conflict",
+  "drift",
+  "evidence"
+] as const;
+
+export type QuestionDirective = (typeof questionDirectives)[number];
+
+export type QuestionDirectiveSource = "inline" | "default";
+
 export type QuestionSource = "user" | "assistant" | "system";
 
 export interface QuestionEvent {
   id: string;
   timestamp: string;
   text: string;
+  normalized_text?: string;
   source: QuestionSource;
   related_files: string[];
   tags: string[];
+  directive?: QuestionDirective;
+  directive_source?: QuestionDirectiveSource;
 }
 
 export interface DirectionDelta {
@@ -78,6 +96,8 @@ export interface MentalModel {
 export interface ImpactAnalysis {
   question_id: string;
   impact_type: ImpactType;
+  directive?: QuestionDirective;
+  directive_source?: QuestionDirectiveSource;
   affected_nodes: string[];
   strengthened: string[];
   weakened: string[];
@@ -85,6 +105,39 @@ export interface ImpactAnalysis {
   removed: string[];
   conflicts: string[];
   summary: string;
+}
+
+export interface QuestionModeConfig {
+  version: 1;
+  default_directive: QuestionDirective;
+  updated_at: string;
+  source_question_id?: string;
+}
+
+export interface ProjectAnalysis {
+  version: 1;
+  analyzed_at: string;
+  project_root: string;
+  project_name: string;
+  package_manager?: string;
+  package_name?: string;
+  package_scripts: string[];
+  workspaces: string[];
+  lockfiles: string[];
+  top_level_directories: string[];
+  docs: string[];
+  source_directories: string[];
+  file_extension_counts: Record<string, number>;
+  inferred_stack: string[];
+  summary: string;
+}
+
+export interface SyncState {
+  version: 1;
+  synced_at: string;
+  project_root: string;
+  refreshed_files: string[];
+  copied_targets: string[];
 }
 
 export interface MentalContext {
@@ -121,4 +174,3 @@ export interface MindmapGraph {
     type: "mindmap";
   };
 }
-
